@@ -7,14 +7,113 @@
 </head>
 <body>
 
-    <section id="body">
-        <h2 id="body_lblComensales">Gestion Comensales</h2>
+    <!-- Creamos una Sección donde se Reporta lo Solicitado  -->
+        <section id="body">
 
+            <!-- Titulo de donde Se Reportan lo Solicitado -->
+                <h2>Reporte de Universidad</h2>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos un div por cada Salida Esperada -->
+                <div>
+                    <strong>Nombre del Profesor:</strong> <span id="body_lblNombre">0</span>
+                </div>
+
+                <div>
+                    <strong>Monto del Bono:</strong> <span id="body_lblBono">0</span>$
+                </div>
+
+                <div>
+                    <strong>Monto del Sueldo "Profesor Fijo":</strong> <span id="body_lblSueldo">0</span>$
+                </div>
+
+                <div>
+                    <strong>Horas Trabajadas "Profesor Contratado"</strong> <span id="body_lblHoras">0</span>
+                </div>
+
+                <div>
+                    <strong>Ingreso Total del Profesor:</strong> <span id="body_lblIngresoTotal">0</span>$
+                </div>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos un Boton que Procesa a Cada Profesor -->
+                <button id="body_btNewcomensal"><strong>Procesar Profesor</strong></button>
+
+        </section>
+
+    <!-- Creamos una Seccion Para Solicitar Los Datos -->
+        <section id="comensal" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 350px;">
+
+        <!-- Titulo de donde se Procesan los Datos -->
+            <h2 id="comensal_lblProfesor">Procesar Profesor</h2>
+
+        <!-- Input del Nombre del Profesor -->
             <div>
-                
+                <label> Nombre del Profesor:
+                    <input type="text" id="comensal_inNombre" placeholder="Ej: Mario">
+                </label>
             </div>
 
-    </section>
+        <!-- Input del Bono del Profesor -->
+            <div>
+                <label> Bono del Profesor:
+                    <input type="number" id="comensal_inBono" placeholder="Ej: 500">
+                </label>
+            </div>
+
+        <!-- Seleccionador del Tipo de Profesor -->
+            <div>
+                <label>Tipo de Profesor</label>
+                <select id="comensal_inTipo">
+                    <option value="" disabled selected>Seleccione el Tipo de Profesor</option>
+                    <option value="fijo">Fijo</option>
+                    <option value="contratado">Contratado</option>
+                </select>
+            </div>
+
+        <!-- Input del Sueldo del Profesor Fijo -->
+            <div id="hideSalary" hidden>
+                <label> Sueldo del Profesor "Fijo":
+                    <input type="number" id="comensal_inSueldo" placeholder="Ej: 300">
+                </label>
+            </div>
+
+        <!-- Input de las Horas del Profesor Contratado -->
+            <div id="hideHours" hidden>
+                <label> Horas de Trabajo del Profesor "Contratado":
+                    <input type="number" id="comensal_inHoras" placeholder="Ej: 15">
+                </label>
+            </div>
+
+        <!-- Creamos los Botones de Aceptar y Cancelar -->
+            <button type="button" id="comensal_btCancelar"><Strong>Cancelar</Strong></button>
+            <button type="button" id="comensal_btAceptar"><strong>Aceptar</strong></button>
+
+        </section>
+
+    <!-- Importamos Los Archivos Js -->
+        <script type="module">
+
+        // Importamos los Controladores
+            import Cl_cUniversidad from "./dist/controllers/Cl_cUniversidad.js";
+            import Cl_cProfesor from "./dist/controllers/Cl_cProfesor.js";
+
+        // Importamos las Vistas Plain
+            import Cl_vUniversidadPlain from "./dist/views/Cl_vUniversidadPlain.js";
+            import Cl_vProfesorPlain from "./dist/views/Cl_vProfesorPlain.js";
+
+        // Instanciamos Las Vistas
+            const vistaUniversidad = new Cl_vUniversidadPlain();
+            const vistaProfesor = new Cl_vProfesorPlain();
+
+        // Inyectamos Las Vistas a los Controladores
+            const controladorProfesor = new Cl_cProfesor(vistaProfesor);
+                new Cl_cUniversidad(vistaUniversidad, controladorProfesor);
+                </script>
 
 </body>
 </html>

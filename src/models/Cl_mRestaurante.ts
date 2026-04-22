@@ -72,5 +72,8 @@ export default class Cl_mRestaurante{
             return this.acumDesH / this.contaVarios * 100
         } else return 0
     }
-    
+
+    cntVarios(): number {
+        return this.contaVarios; }
+
 }
