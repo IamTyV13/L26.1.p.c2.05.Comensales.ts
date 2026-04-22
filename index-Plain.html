@@ -11,37 +11,41 @@
         <section id="body">
 
             <!-- Titulo de donde Se Reportan lo Solicitado -->
-                <h2>Reporte de Universidad</h2>
+                <h2>Reporte de Restaurante</h2>
 
             <!-- Barra Separadora -->
                 <hr>
 
             <!-- Creamos un div por cada Salida Esperada -->
                 <div>
-                    <strong>Nombre del Profesor:</strong> <span id="body_lblNombre">0</span>
+                    <strong>Reporte Totales Varios:</strong> <span id="body_lblTotalesVarios">0</span>
                 </div>
 
                 <div>
-                    <strong>Monto del Bono:</strong> <span id="body_lblBono">0</span>$
+                    <strong>Porcentajes de Desayunos:</strong> <span id="body_lblPorcentD">0</span>
                 </div>
 
                 <div>
-                    <strong>Monto del Sueldo "Profesor Fijo":</strong> <span id="body_lblSueldo">0</span>$
+                    <strong>Porcentajes de Almuerzo:</strong> <span id="body_lblPorcentA">0</span>
                 </div>
 
                 <div>
-                    <strong>Horas Trabajadas "Profesor Contratado"</strong> <span id="body_lblHoras">0</span>
+                    <strong>Porcentajes de Ambos:</strong> <span id="body_lblPorcentAm">0</span>
                 </div>
 
                 <div>
-                    <strong>Ingreso Total del Profesor:</strong> <span id="body_lblIngresoTotal">0</span>$
+                    <strong>Porcentajes de Descuento de Tercera Edad "Mujeres":</strong> <span id="body_lblPorcentDesM">0</span>
+                </div>
+
+                <div>
+                    <strong>Porcentajes de Descuento de Tercera Edad "Hombres":</strong> <span id="body_lblPorcentDesH">0</span>
                 </div>
 
             <!-- Barra Separadora -->
                 <hr>
 
-            <!-- Creamos un Boton que Procesa a Cada Profesor -->
-                <button id="body_btNewcomensal"><strong>Procesar Profesor</strong></button>
+            <!-- Creamos un Boton que Procesa a Cada Comensal -->
+                <button id="body_btNewComensal"><strong>Procesar Comensal</strong></button>
 
         </section>
 
@@ -49,43 +53,47 @@
         <section id="comensal" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 350px;">
 
         <!-- Titulo de donde se Procesan los Datos -->
-            <h2 id="comensal_lblProfesor">Procesar Profesor</h2>
+            <h2 id="comensal_lblComensal">Procesar Comensal</h2>
 
-        <!-- Input del Nombre del Profesor -->
+        <!-- Input del Nombre del Comensal -->
             <div>
-                <label> Nombre del Profesor:
+                <label> Nombre del Comensal:
                     <input type="text" id="comensal_inNombre" placeholder="Ej: Mario">
                 </label>
             </div>
 
-        <!-- Input del Bono del Profesor -->
+        <!-- Input del Bono del Comensal -->
             <div>
-                <label> Bono del Profesor:
-                    <input type="number" id="comensal_inBono" placeholder="Ej: 500">
+                <label> Cédula del Comensal:
+                    <input type="number" id="comensal_inCedula" placeholder="Ej: 545645646">
                 </label>
             </div>
 
-        <!-- Seleccionador del Tipo de Profesor -->
+        <!-- Seleccionador del Sexo del Comensal -->
             <div>
-                <label>Tipo de Profesor</label>
-                <select id="comensal_inTipo">
-                    <option value="" disabled selected>Seleccione el Tipo de Profesor</option>
-                    <option value="fijo">Fijo</option>
-                    <option value="contratado">Contratado</option>
+                <label>Sexo del Comensal</label>
+                <select id="comensal_inSexo">
+                    <option value="" disabled selected>Seleccione el Sexo del Comensal</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
                 </select>
             </div>
 
-        <!-- Input del Sueldo del Profesor Fijo -->
-            <div id="hideSalary" hidden>
-                <label> Sueldo del Profesor "Fijo":
-                    <input type="number" id="comensal_inSueldo" placeholder="Ej: 300">
-                </label>
+        <!-- Seleccionador del Turno Comida -->
+            <div>
+                <label>Turno Comida</label>
+                <select id="comensal_inTurno">
+                    <option value="" disabled selected>Seleccione el Turno Comida</option>
+                    <option value="Desayuno">Desayuno 5$</option>
+                    <option value="Almuerzo">Almuerzo 7$</option>
+                    <option value="Ambos">Ambos 10$</option>
+                </select>
             </div>
 
-        <!-- Input de las Horas del Profesor Contratado -->
-            <div id="hideHours" hidden>
-                <label> Horas de Trabajo del Profesor "Contratado":
-                    <input type="number" id="comensal_inHoras" placeholder="Ej: 15">
+        <!-- Input del Fecha de Nacimiento -->
+            <div>
+                <label>Fecha de Nacimiento:
+                    <input type="date" id="comensal_inFecha">
                 </label>
             </div>
 
@@ -99,20 +107,20 @@
         <script type="module">
 
         // Importamos los Controladores
-            import Cl_cUniversidad from "./dist/controllers/Cl_cUniversidad.js";
-            import Cl_cProfesor from "./dist/controllers/Cl_cProfesor.js";
+            import Cl_cRestaurante from "./dist/controllers/Cl_cRestaurante.js";
+            import Cl_cComensal from "./dist/controllers/Cl_cComensal.js";
 
         // Importamos las Vistas Plain
-            import Cl_vUniversidadPlain from "./dist/views/Cl_vUniversidadPlain.js";
-            import Cl_vProfesorPlain from "./dist/views/Cl_vProfesorPlain.js";
+            import Cl_vRestaurantePlain from "./dist/views/Cl_vRestaurantePlain.js";
+            import Cl_vComensalPlain from "./dist/views/Cl_vComensalPlain.js";
 
         // Instanciamos Las Vistas
-            const vistaUniversidad = new Cl_vUniversidadPlain();
-            const vistaProfesor = new Cl_vProfesorPlain();
+            const vistaRestaurante = new Cl_vRestaurantePlain();
+            const vistaComensal = new Cl_vComensalPlain();
 
         // Inyectamos Las Vistas a los Controladores
-            const controladorProfesor = new Cl_cProfesor(vistaProfesor);
-                new Cl_cUniversidad(vistaUniversidad, controladorProfesor);
+            const controladorComensal = new Cl_cComensal(vistaComensal);
+                new Cl_cRestaurante(vistaRestaurante, controladorComensal);
                 </script>
 
 </body>
