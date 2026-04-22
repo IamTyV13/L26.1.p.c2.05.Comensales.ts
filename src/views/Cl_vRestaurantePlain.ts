@@ -27,7 +27,7 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    onNewComensal(callback: () => void): void {
         this.btNewComensal.onclick = callback;      }
 
-    reportar({ cntVarios, porcentD, porcentA, porcentAm, porcentDesM, porcentDesH }: { cntVarios: number; PorcentD: number; PorcentA: number; PorcentAm: number; PorcentDesM: number; PorcentDesH: number; }): void {
+    reportar({ cntVarios, porcentD, porcentA, porcentAm, porcentDesM, porcentDesH }: { cntVarios: number; porcentD: number; porcentA: number; porcentAm: number; porcentDesM: number; porcentDesH: number; }): void {
         this.lblTotalesVarios.innerHTML = `${cntVarios}`
         this.lblPorcentD.innerHTML = `${porcentD}`
         this.lblPorcentA.innerHTML = `${porcentA}`

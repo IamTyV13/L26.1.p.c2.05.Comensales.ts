@@ -43,31 +43,31 @@ export default class Cl_mRestaurante{
 
     }
 
-    porcerntD(): number {
+    porcentD(): number {
         if (this.contaVarios > 0){
             return this.acumD / this.contaVarios * 100
         } else return 0
     }        
 
-    porcerntA(): number {
+    porcentA(): number {
         if (this.contaVarios > 0){
             return this.acumA / this.contaVarios * 100
         } else return 0
     }
 
-    porcerntAm(): number {
+    porcentAm(): number {
         if (this.contaVarios > 0){
             return this.acumAm / this.contaVarios * 100
         } else return 0
     }
 
-    porcerntM(): number {
+    porcentM(): number {
         if (this.contaVarios > 0){
             return this.acumDesM / this.contaVarios * 100
         } else return 0
     }
 
-    porcerntH(): number {
+    porcentH(): number {
         if (this.contaVarios > 0){
             return this.acumDesH / this.contaVarios * 100
         } else return 0
