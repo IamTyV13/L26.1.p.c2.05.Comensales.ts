@@ -8,6 +8,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
    private inSexo: HTMLSelectElement;
    private inFecha: HTMLInputElement;
    private inTurno: HTMLSelectElement;
+   private btCancelar: HTMLButtonElement;
+   private btAceptar: HTMLButtonElement;
    private vista: HTMLElement;
 
    constructor() {
@@ -16,6 +18,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
       this.inSexo = document.getElementById("comensal_inSexo") as HTMLSelectElement;
       this.inFecha = document.getElementById("comensal_inFecha") as HTMLInputElement;
       this.inTurno = document.getElementById("comensal_inTurno") as HTMLSelectElement;
+      this.btCancelar = document.getElementById("comensal_btCancelar") as HTMLButtonElement;
+      this.btAceptar = document.getElementById("comensal_btAceptar") as HTMLButtonElement;
       this.vista = document.getElementById("comensal") as HTMLElement;
    }
 
@@ -34,6 +38,12 @@ export default class Cl_vComensalPlain implements I_vComensal{
    get turno(): string {
       return this.inTurno.value; }
 
+   onAceptar(callback: () => void): void {
+        this.btAceptar.onclick = callback;   }
+
+    onCancelar(callback: () => void): void {
+        this.btCancelar.onclick = callback;  }
+
    mostrar(): void {
         if (this.vista === null ) return;
             this.vista.hidden = false;
@@ -48,27 +58,6 @@ export default class Cl_vComensalPlain implements I_vComensal{
         if (this.vista === null) return;
             this.vista.hidden = true;
     }
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
