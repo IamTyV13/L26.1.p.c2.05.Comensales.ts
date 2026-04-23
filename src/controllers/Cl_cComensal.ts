@@ -5,7 +5,7 @@ import { I_vComensal } from "../interfaces/I_vComensal.js";
 
 export default class Cl_cComensal {
     private vista: I_vComensal;
-    private callback!: (Comensal: Cl_mComensal | null ) => void;
+    private callback!: (comensal: Cl_mComensal | null ) => void;
 
     constructor(vista: I_vComensal) {
         // Inicializamos Vista
@@ -16,7 +16,7 @@ export default class Cl_cComensal {
     }
 
     // Metodo para que El Abasto llame a este Controlador
-        solicitarComensal(callback: (Comensal: Cl_mComensal | null) => void) {
+        solicitarComensal(callback: (comensal: Cl_mComensal | null) => void) {
             this.callback = callback;
             this.vista.mostrar();
         }
@@ -27,29 +27,7 @@ export default class Cl_cComensal {
         }
 
         private btAceptarOnclick() {
-
-            console.log("=== VALORES LEÍDOS ===");
-            console.log("tipo:", this.vista.tipo);
-            console.log("nombre:", this.vista.nombre);
-            console.log("costo:", this.vista.bono);
-
-            // Leer Selector
-            const tipo = this.vista.tipo
-
-            const nombre = this.vista.nombre;
-            const bono = this.vista.bono;
-            const sueldo = this.vista.sueldo;
-            const horas = this.vista.horas;
-
-            let newComensal: Cl_mComensal;
-
-                if (tipo === "fijo") {
-                    newComensal = new Cl_mFijo({ nombre, bono, sueldo });
-                } else {
-                    newComensal = new Cl_mContratado({ nombre, bono, horas });
-                }
-            this.callback(newComensal);
+            this.callback(new Cl_mComensal({n:this.vista.nombre, c:this.vista.cedula, s:this.vista.sexo, f:this.vista.fecha, t:this.vista.turno}));
             this.vista.ocultar();
-
         }
 }

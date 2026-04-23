@@ -21,12 +21,10 @@ export default class Cl_cRestaurante {
         this.cComensal.solicitarComensal((c) => {
             if(c!== null) {
                 this.mRestaurante.procesarComensal(c);
-                this.vRestaurante.reportar({ 
-
-
-
-
-                    nombre: p.nombre, bono: p.bono, sueldo: p.sueldoT(), horas: p.horasT(), ingresoTotal: p.ingresoTotal()});
+                this.vRestaurante.reportar({cntVarios: this.mRestaurante.cntVarios(), 
+                    porcentD: this.mRestaurante.porcentD(), porcentA: this.mRestaurante.porcentA(), 
+                    porcentAm: this.mRestaurante.porcentAm(), porcentDesM: this.mRestaurante.porcentM(), 
+                    porcentDesH: this.mRestaurante.porcentH() });
             }
         })
     }

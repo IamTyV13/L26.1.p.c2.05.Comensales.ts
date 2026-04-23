@@ -9,11 +9,11 @@ export default class Cl_mComensal extends Cl_mPersona{
     }
 
     set turno(t:string){
-        this.turno = t;
+        this._turno = t;
     }
 
     get turno(): string{
-        return this.turno;
+        return this._turno;
     }
 
     costoC(): number{

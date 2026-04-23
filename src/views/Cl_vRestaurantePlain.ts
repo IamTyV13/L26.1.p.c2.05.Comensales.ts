@@ -13,7 +13,7 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    private vista: HTMLElement | null;
 
    constructor() {
-      this.lblTotalesVarios = document.getElementById("body_lblPorcentD") as HTMLElement;
+      this.lblTotalesVarios = document.getElementById("body_lblTotalesVarios") as HTMLElement;
       this.lblPorcentD = document.getElementById("body_lblPorcentD") as HTMLElement;
       this.lblPorcentA = document.getElementById("body_lblPorcentA") as HTMLElement;
       this.lblPorcentAm = document.getElementById("body_lblPorcentAm") as HTMLElement;
@@ -29,11 +29,11 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
 
     reportar({ cntVarios, porcentD, porcentA, porcentAm, porcentDesM, porcentDesH }: { cntVarios: number; porcentD: number; porcentA: number; porcentAm: number; porcentDesM: number; porcentDesH: number; }): void {
         this.lblTotalesVarios.innerHTML = `${cntVarios}`
-        this.lblPorcentD.innerHTML = `${porcentD}`
-        this.lblPorcentA.innerHTML = `${porcentA}`
-        this.lblPorcentAm.innerHTML = `${porcentAm}`
-        this.lblPorcentDesM.innerHTML = `${porcentDesM}`
-        this.lblPorcentDesH.innerHTML = `${porcentDesH}`
+        this.lblPorcentD.innerHTML = `${porcentD.toFixed(2)}`
+        this.lblPorcentA.innerHTML = `${porcentA.toFixed(2)}`
+        this.lblPorcentAm.innerHTML = `${porcentAm.toFixed(2)}`
+        this.lblPorcentDesM.innerHTML = `${porcentDesM.toFixed(2)}`
+        this.lblPorcentDesH.innerHTML = `${porcentDesH.toFixed(2)}`
         
     }
 
