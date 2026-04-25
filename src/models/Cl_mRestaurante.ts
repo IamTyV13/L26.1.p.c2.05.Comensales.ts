@@ -34,11 +34,11 @@ export default class Cl_mRestaurante{
         }
         
         if(c.sexo === "Mujer"){
-            this.cntDesM ++
+            this.cntDesM ++ // aja y el descuento =?
         }
         
         if(c.sexo === "Hombre"){
-            this.cntDesH ++
+            this.cntDesH ++ // x2
         }
 
     }

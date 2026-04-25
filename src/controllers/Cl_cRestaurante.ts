@@ -44,18 +44,18 @@ export default class Cl_cRestaurante {
 
     // Datos Constantes para el Restaurante
         private readonly datosRestaurante = [
-            {n: "Juan Perez", c: 1234567890, s: "Mujer", f: "1990, 5, 15", t: "Almuerzo"},
-            {n: "Maria Gomez", c: 987654321, s: "Mujer", f: "1985, 10, 20", t: "Ambos"},
-            {n: "Carlos Sanchez", c: 1122334455, s: "Hombre", f: "2000, 2, 5", t: "Desayuno"},
-            {n: "Ana Rodriguez", c: 5566778899, s: "Mujer", f: "1995, 7, 30", t: "Ambos"},
-            {n: "Luis Fernandez", c: 6677889900, s: "Hombre", f: "1988, 11, 25", t: "Almuerzo"},
-            {n: "Sofia Martinez", c: 9988776655, s: "Mujer", f: "1992, 3, 10", t: "Desayuno"},
-            {n: "Diego Ramirez", c: 4433221100, s: "Hombre", f: "1980, 8, 5", t: "Ambos"},
-            {n: "Laura Gonzalez", c: 7766554433, s: "Mujer", f: "1998, 12, 15", t: "Almuerzo"},
-            {n: "Jorge Lopez", c: 3344556677, s: "Hombre", f: "1983, 4, 20", t: "Desayuno"},
-            {n: "Isabella Torres", c: 8899001122, s: "Mujer", f: "1991, 9, 25", t: "Ambos"},
-            {n: "Miguel Hernandez", c: 2233445566, s: "Hombre", f: "1987, 6, 10", t: "Almuerzo"},
-            {n: "Valentina Ramirez", c: 6655443322, s: "Mujer", f: "1993, 1, 5", t: "Desayuno"},
+            {n: "Juan Perez", c: 111, s: "Hombre", f: "1965, 5, 15", t: "Almuerzo"},
+            {n: "Maria Gomez", c: 222, s: "Mujer", f: "1985, 10, 20", t: "Ambos"},
+            {n: "Carlos Sanchez", c: 333, s: "Hombre", f: "2000, 2, 5", t: "Desayuno"},
+            {n: "Ana Rodriguez", c: 444, s: "Mujer", f: "1960, 7, 30", t: "Ambos"},
+            {n: "Luis Fernandez", c: 555, s: "Hombre", f: "1955, 11, 25", t: "Almuerzo"},
+            {n: "Sofia Martinez", c: 666, s: "Mujer", f: "1992, 3, 10", t: "Desayuno"},
+            {n: "Diego Ramirez", c: 777, s: "Hombre", f: "1980, 8, 5", t: "Ambos"},
+            {n: "Laura Gonzalez", c: 888, s: "Mujer", f: "1998, 12, 15", t: "Almuerzo"},
+            {n: "Jorge Lopez", c: 999, s: "Hombre", f: "1983, 4, 20", t: "Desayuno"},
+            {n: "Isabella Torres", c: 1010, s: "Mujer", f: "1958, 9, 25", t: "Ambos"},
+            {n: "Miguel Flores", c: 1011, s: "Hombre", f: "1950, 6, 10", t: "Almuerzo"},
+            {n: "Luz Ramirez", c: 1012, s: "Mujer", f: "1993, 1, 5", t: "Desayuno"},
          ];
          
         constructor(vistaRestaurante: I_vRestaurante, controladorComensal: Cl_cComensal) {
