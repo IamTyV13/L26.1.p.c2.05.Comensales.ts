@@ -44,18 +44,18 @@ export default class Cl_cRestaurante {
 
     // Datos Constantes para el Restaurante
         private readonly datosRestaurante = [
-            {n: "Juan Perez", c: 111, s: "Hombre", f: "1965, 5, 15", t: "Almuerzo"},
-            {n: "Maria Gomez", c: 222, s: "Mujer", f: "1985, 10, 20", t: "Ambos"},
-            {n: "Carlos Sanchez", c: 333, s: "Hombre", f: "2000, 2, 5", t: "Desayuno"},
-            {n: "Ana Rodriguez", c: 444, s: "Mujer", f: "1960, 7, 30", t: "Ambos"},
-            {n: "Luis Fernandez", c: 555, s: "Hombre", f: "1955, 11, 25", t: "Almuerzo"},
-            {n: "Sofia Martinez", c: 666, s: "Mujer", f: "1992, 3, 10", t: "Desayuno"},
-            {n: "Diego Ramirez", c: 777, s: "Hombre", f: "1980, 8, 5", t: "Ambos"},
-            {n: "Laura Gonzalez", c: 888, s: "Mujer", f: "1998, 12, 15", t: "Almuerzo"},
-            {n: "Jorge Lopez", c: 999, s: "Hombre", f: "1983, 4, 20", t: "Desayuno"},
-            {n: "Isabella Torres", c: 1010, s: "Mujer", f: "1958, 9, 25", t: "Ambos"},
-            {n: "Miguel Flores", c: 1011, s: "Hombre", f: "1950, 6, 10", t: "Almuerzo"},
-            {n: "Luz Ramirez", c: 1012, s: "Mujer", f: "1993, 1, 5", t: "Desayuno"},
+            {nombre: "Juan Perez", cedula: "111", sexo: "Hombre", fechaNacimiento: "1965, 5, 15", turno: "Almuerzo"},
+            {nombre: "Maria Gomez", cedula: "222", sexo: "Mujer", fechaNacimiento: "1985, 10, 20", turno: "Ambos"},
+            {nombre: "Carlos Sanchez", cedula: "333", sexo: "Hombre", fechaNacimiento: "2000, 2, 5", turno: "Desayuno"},
+            {nombre: "Ana Rodriguez", cedula: "444", sexo: "Mujer", fechaNacimiento: "1960, 7, 30", turno: "Ambos"},
+            {nombre: "Luis Fernandez", cedula: "555", sexo: "Hombre", fechaNacimiento: "1955, 11, 25", turno: "Almuerzo"},
+            {nombre: "Sofia Martinez", cedula: "666", sexo: "Mujer", fechaNacimiento: "1992, 3, 10", turno: "Desayuno"},
+            {nombre: "Diego Ramirez", cedula: "777", sexo: "Hombre", fechaNacimiento: "1980, 8, 5", turno: "Ambos"},
+            {nombre: "Laura Gonzalez", cedula: "888", sexo: "Mujer", fechaNacimiento: "1998, 12, 15", turno: "Almuerzo"},
+            {nombre: "Jorge Lopez", cedula: "999", sexo: "Hombre", fechaNacimiento: "1983, 4, 20", turno: "Desayuno"},
+            {nombre: "Isabella Torres", cedula: "1010", sexo: "Mujer", fechaNacimiento: "1958, 9, 25", turno: "Ambos"},
+            {nombre: "Miguel Flores", cedula: "1011", sexo: "Hombre", fechaNacimiento: "1950, 6, 10", turno: "Almuerzo"},
+            {nombre: "Luz Ramirez", cedula: "1012", sexo: "Mujer", fechaNacimiento: "1993, 1, 5", turno: "Desayuno"},
          ];
          
         constructor(vistaRestaurante: I_vRestaurante, controladorComensal: Cl_cComensal) {
@@ -74,7 +74,7 @@ export default class Cl_cRestaurante {
         // Nuevo Método para Cargar Datos Constantes al Restaurante
             private cargarDatosConst(): void {
                 for (let b of this.datosRestaurante) {
-                    const comensal = new Cl_mComensal({n: b.n, c: b.c, s: b.s, f: b.f, t: b.t});
+                    const comensal = new Cl_mComensal({nombre: b.nombre, cedula: b.cedula, sexo: b.sexo, fechaNacimiento: b.fechaNacimiento, turno: b.turno});
                     this.mRestaurante.procesarComensal(comensal);
                 }
             }
@@ -82,12 +82,12 @@ export default class Cl_cRestaurante {
         // Nuevo Método para Actualizar la Vista con los Datos del Restaurante
             private actualizarVista(): void {
                 this.vRestaurante.reportar({
-                    cntVarios: this.mRestaurante.cntVarios(),
-                    porcentD: this.mRestaurante.porcentD(),
-                    porcentA: this.mRestaurante.porcentA(),
-                    porcentAm: this.mRestaurante.porcentAm(),
-                    porcentDesM: this.mRestaurante.porcentM(),
-                    porcentDesH: this.mRestaurante.porcentH()
+                    contadorVarios: this.mRestaurante.contadorVarios(),
+                    porcentDesayuno: this.mRestaurante.porcentDesayuno(),
+                    porcentAlmuerzo: this.mRestaurante.porcentAlmuerzo(),
+                    porcentAmbos: this.mRestaurante.porcentAmbos(),
+                    porcentDescuentoMujeres: this.mRestaurante.porcentDescuentoMujeres(),
+                    porcentDescuentoHombres: this.mRestaurante.porcentDescuentoHombres()
                 });
             }
 

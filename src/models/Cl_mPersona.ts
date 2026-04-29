@@ -1,14 +1,16 @@
 export default class Cl_mPersona{
     private _nombre : string ="";
-    private _cedula : number =0;
+    private _cedula : string ="";
     private _sexo : string = "";
-    private _fecha : Date = new Date(); 
+    private _fechaNacimiento : Date = new Date(); 
 
-    constructor({n,c,s,f}:{n:string, c:number, s:string, f:string}={n:"", c:0, s:"", f:""}){
-        this.nombre = n;
-        this.cedula = c;
-        this.sexo = s;
-        this.fecha = f;
+    constructor({nombre,cedula,sexo,fechaNacimiento}:
+        {nombre:string, cedula:string, sexo:string, fechaNacimiento:string}=
+        {nombre:"", cedula:"", sexo:"", fechaNacimiento:""}){
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.sexo = sexo;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     set nombre(n:string){
@@ -19,11 +21,11 @@ export default class Cl_mPersona{
         return this._nombre;
     }
 
-    set cedula(c:number){
+    set cedula(c:string){
         this._cedula = c;
     }
 
-    get cedula(): number{
+    get cedula(): string{
         return this._cedula;
     }
 
@@ -35,23 +37,23 @@ export default class Cl_mPersona{
         return this._sexo;
     }
 
-    set fecha(f:string){
-        this._fecha = new Date(f);
+    set fechaNacimiento(f:string){
+        this._fechaNacimiento = new Date(f);
     }
 
-    get fecha(): Date{
-        return this._fecha;
+    get fechaNacimiento(): Date{
+        return this._fechaNacimiento;
     }
 
     calcularEdad(): number {
     const hoy = new Date();  // fecha actual
 
-    let edad = hoy.getFullYear() - this.fecha.getFullYear();
+    let edad = hoy.getFullYear() - this.fechaNacimiento.getFullYear();
 
     const mesActual = hoy.getMonth();
-    const mesNac = this.fecha.getMonth();
+    const mesNac = this.fechaNacimiento.getMonth();
     const diaActual = hoy.getDate();
-    const diaNac = this.fecha.getDate();
+    const diaNac = this.fechaNacimiento.getDate();
     
     // Si aún no ha cumplido años este año, restar 1
     if (mesActual < mesNac || (mesActual === mesNac && diaActual < diaNac)) {

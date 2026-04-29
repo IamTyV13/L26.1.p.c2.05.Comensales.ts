@@ -1,8 +1,7 @@
-// Cl_vComensalPlain
-
 import { I_vComensal } from "../interfaces/I_vComensal.js";
+ declare var bootstrap: any;
 
-export default class Cl_vComensalPlain implements I_vComensal{
+export default class Cl_vComensalBootstrap implements I_vComensal{
    private inNombre: HTMLInputElement;
    private inCedula: HTMLInputElement;
    private inSexo: HTMLSelectElement;
@@ -10,7 +9,7 @@ export default class Cl_vComensalPlain implements I_vComensal{
    private inTurno: HTMLSelectElement;
    private btCancelar: HTMLButtonElement;
    private btAceptar: HTMLButtonElement;
-   private vista: HTMLElement;
+   private modal: any;
 
    constructor() {
       this.inNombre = document.getElementById("comensal_inNombre") as HTMLInputElement;
@@ -20,7 +19,9 @@ export default class Cl_vComensalPlain implements I_vComensal{
       this.inTurno = document.getElementById("comensal_inTurno") as HTMLSelectElement;
       this.btCancelar = document.getElementById("comensal_btCancelar") as HTMLButtonElement;
       this.btAceptar = document.getElementById("comensal_btAceptar") as HTMLButtonElement;
-      this.vista = document.getElementById("comensal") as HTMLElement;
+      
+       const elementoModal = document.getElementById("comensal") as HTMLElement;
+            this.modal = new bootstrap.Modal(elementoModal)
    }
 
    get nombre(): string {
@@ -45,8 +46,7 @@ export default class Cl_vComensalPlain implements I_vComensal{
         this.btCancelar.onclick = callback;  }
 
    mostrar(): void {
-        if (this.vista === null ) return;
-            this.vista.hidden = false;
+            this.modal.show();
             this.inNombre.value = "";
             this.inCedula.value = "";
             this.inSexo.value = "";
@@ -55,8 +55,7 @@ export default class Cl_vComensalPlain implements I_vComensal{
         }
 
     ocultar(): void {
-        if (this.vista === null) return;
-            this.vista.hidden = true;
+        this.modal.hide();
     }
 }
 
@@ -83,8 +82,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
    -> Se registran los datos del comensal
    -> Se conoce además de cada uno:
        + Turno de comida: 1-Desayuno, 2-Almuerzo, 3-Ambos
-	   + Costos: $5, $7, $10
-	   + Personas de 3ra edad (> 50 mujeres / >60 hombres) pagan solo 50%
+       + Costos: $5, $7, $10
+       + Personas de 3ra edad (> 50 mujeres / >60 hombres) pagan solo 50%
    -> Reportar totales varios
    -> Repotar porcentajes por turno
    -> Repotar porcentajes por descuento */

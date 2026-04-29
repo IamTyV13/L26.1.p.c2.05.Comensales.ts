@@ -3,9 +3,11 @@ import Cl_mPersona from "./Cl_mPersona.js";
 export default class Cl_mComensal extends Cl_mPersona{
     private _turno : string = "";
 
-    constructor ({n,c,s,f,t}:{n:string, c:number,s:string,f:string,t:string}={n: "", c:0, s:"", f:"", t:""}){
-        super({n,c,s,f});
-        this.turno = t;
+    constructor ({nombre,cedula,sexo,fechaNacimiento,turno}:
+        {nombre:string, cedula:string, sexo:string, fechaNacimiento:string, turno:string}=
+        {nombre: "", cedula:"", sexo:"", fechaNacimiento:"", turno:""}){
+        super({nombre, cedula, sexo, fechaNacimiento});
+        this.turno = turno;
     }
 
     set turno(t:string){
@@ -16,7 +18,7 @@ export default class Cl_mComensal extends Cl_mPersona{
         return this._turno;
     }
 
-    costoC(): number{
+    costoComida(): number{
         if(this.turno === "Desayuno"){
             return 5;
         } else 
@@ -31,10 +33,10 @@ export default class Cl_mComensal extends Cl_mPersona{
 
     descuento(): number{
         if(this.sexo === "Mujer" && this.calcularEdad() >=50){
-            return this.costoC() * 0.5 
+            return this.costoComida() * 0.5 
         } else
         if(this.sexo === "Hombre" && this.calcularEdad() >= 60){
-            return this.costoC() * 0.5
+            return this.costoComida() * 0.5
         }  else return 0
     }
 }

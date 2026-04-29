@@ -1,79 +1,79 @@
 import Cl_mComensal from "./Cl_mComensal.js";
 
 export default class Cl_mRestaurante{
-    private contaVarios : number;
-    private cntD : number; 
-    private cntA : number; 
-    private cntAm : number; 
-    private cntDesM : number;
-    private cntDesH : number;
+    private cntVarios : number;
+    private cntDesayuno : number; 
+    private cntAlmuerzo : number; 
+    private cntAmbos : number; 
+    private cntDescuentoMujeres : number;
+    private cntDescuentoHombres : number;
     
     
     constructor() {
-        this.contaVarios = 0;
-        this.cntD = 0;
-        this.cntA = 0;
-        this.cntAm = 0;
-        this.cntDesM = 0.0;
-        this.cntDesH = 0.0;
+        this.cntVarios = 0;
+        this.cntDesayuno = 0;
+        this.cntAlmuerzo = 0;
+        this.cntAmbos = 0;
+        this.cntDescuentoMujeres = 0.0;
+        this.cntDescuentoHombres = 0.0;
     } 
 
     procesarComensal(c: Cl_mComensal): void{
-        this.contaVarios++
+        this.cntVarios++
 
         if(c.turno === "Desayuno"){
-            this.cntD ++ // Como son porcentaje necesitamos la cantidad no la plata.
+            this.cntDesayuno ++ // Como son porcentaje necesitamos la cantidad no la plata.
         }
         
         if(c.turno === "Almuerzo"){
-            this.cntA ++
+            this.cntAlmuerzo ++
         }
         
         if(c.turno === "Ambos"){
-            this.cntAm ++
+            this.cntAmbos ++
         }
         
-        if(c.sexo === "Mujer"){
-            this.cntDesM ++ // aja y el descuento =?
+        if(c.sexo === "Mujer" && c.descuento()){
+            this.cntDescuentoMujeres ++ // aja y el descuento =?
         }
         
-        if(c.sexo === "Hombre"){
-            this.cntDesH ++ // x2
+        if(c.sexo === "Hombre" && c.descuento()){
+            this.cntDescuentoHombres ++ // x2
         }
 
     }
 
-    porcentD(): number {
-        if (this.contaVarios > 0){
-            return (this.cntD / this.contaVarios) * 100
+    porcentDesayuno(): number {
+        if (this.cntVarios > 0){
+            return (this.cntDesayuno / this.cntVarios) * 100
         } else return 0
     }        
 
-    porcentA(): number {
-        if (this.contaVarios > 0){
-            return (this.cntA / this.contaVarios) * 100
+    porcentAlmuerzo(): number {
+        if (this.cntVarios > 0){
+            return (this.cntAlmuerzo / this.cntVarios) * 100
         } else return 0
     }
 
-    porcentAm(): number {
-        if (this.contaVarios > 0){
-            return (this.cntAm / this.contaVarios) * 100
+    porcentAmbos(): number {
+        if (this.cntVarios > 0){
+            return (this.cntAmbos / this.cntVarios) * 100
         } else return 0
     }
 
-    porcentM(): number {
-        if (this.contaVarios > 0){
-            return this.cntDesM / this.contaVarios * 100
+    porcentDescuentoMujeres(): number {
+        if (this.cntVarios > 0){
+            return this.cntDescuentoMujeres / this.cntVarios * 100
         } else return 0
     }
 
-    porcentH(): number {
-        if (this.contaVarios > 0){
-            return this.cntDesH / this.contaVarios * 100
+    porcentDescuentoHombres(): number {
+        if (this.cntVarios > 0){
+            return this.cntDescuentoHombres / this.cntVarios * 100
         } else return 0
     }
 
-    cntVarios(): number {
-        return this.contaVarios; }
+    contadorVarios(): number {
+        return this.cntVarios; }
 
 }

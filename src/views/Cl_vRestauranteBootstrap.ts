@@ -2,7 +2,7 @@
 
 import { I_vRestaurante } from "../interfaces/I_vRestaurante.js";
 
-export default class Cl_vRestaurantePlain implements I_vRestaurante{
+export default class Cl_vRestauranteBootstrap implements I_vRestaurante{
    private lblTotalesVarios: HTMLElement;
    private lblPorcentDesayuno: HTMLElement;
    private lblPorcentAlmuerzo: HTMLElement;
@@ -10,7 +10,7 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    private lblPorcentDescuentoMujeres: HTMLElement;
    private lblPorcentDescuentoHombres: HTMLElement;
    private btNewComensal: HTMLButtonElement;
-   private vista: HTMLElement | null;
+   private vista: HTMLElement;
 
    constructor() {
       this.lblTotalesVarios = document.getElementById("body_lblTotalesVarios") as HTMLElement;
@@ -20,8 +20,9 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
       this.lblPorcentDescuentoMujeres = document.getElementById("body_lblPorcentDescuentoMujeres") as HTMLElement;
       this.lblPorcentDescuentoHombres = document.getElementById("body_lblPorcentDescuentoHombres") as HTMLElement;
 
+
       this.btNewComensal = document.getElementById("body_btNewComensal") as HTMLButtonElement;
-      this.vista = document.getElementById("body");
+      this.vista = document.getElementById("app-bootstrap") as HTMLElement;
    }
 
    onNewComensal(callback: () => void): void {
@@ -38,13 +39,6 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
         
     }
 
-    mostrar(): void {
-        if (this.vista === null) return;
-        this.vista.hidden = false;          }
-
-    ocultar(): void {
-        if (this.vista === null) return;
-        this.vista.hidden = true;           }
 }
 
 /* Planteamiento de Proyectos 2do corte (8 Ptos)
@@ -69,8 +63,8 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    -> Se registran los datos del comensal
    -> Se conoce además de cada uno:
        + Turno de comida: 1-Desayuno, 2-Almuerzo, 3-Ambos
-	   + Costos: $5, $7, $10
-	   + Personas de 3ra edad (> 50 mujeres / >60 hombres) pagan solo 50%
+       + Costos: $5, $7, $10
+       + Personas de 3ra edad (> 50 mujeres / >60 hombres) pagan solo 50%
    -> Reportar totales varios
    -> Repotar porcentajes por turno
    -> Repotar porcentajes por descuento */

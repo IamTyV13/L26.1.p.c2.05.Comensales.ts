@@ -4,8 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     
+    <div id="app-bootstrap" class="container mt-5"></div>
+    <h2 style="text-align: center; font-family: Arial, sans-serif; font-weight: bolder;">Reporte de Restaurante (Bootstrap)</h2>
+
+        <!-- Separador de Textos -->
+            <hr>
+
+        <!-- Creamos un div por cada Salida Esperada -->
+            <div class="alert alert-info">
+                  <strong>Reporte Totales Varios:</strong> <span id="body_lblTotalesVarios">0</span>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Porcentajes de Desayunos:</strong> <span id="body_lblPorcentDesayuno">0</span>%
+            </div>
+                
+            <div class="alert alert-info">
+               <strong>Porcentajes de Almuerzo:</strong> <span id="body_lblPorcentAlmuerzo">0</span>%
+            </div>
+
+            <div class="alert alert-info">
+               <strong>Porcentajes de Ambos:</strong> <span id="body_lblPorcentAmbos">0</span>%
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Porcentajes de Descuento de Tercera Edad "Mujeres":</strong> <span id="body_lblPorcentDescuentoMujeres">0</span>%
+            </div>
+                
+            <div class="alert alert-info">
+                 <strong>Porcentajes de Descuento de Tercera Edad "Hombres":</strong> <span id="body_lblPorcentDescuentoHombres">0</span>%
+            </div>
+
+        <!-- Separador de Textos -->
+            <hr>
+
+        <!-- Creamos un Boton que Procesa a cada Comenasal-->
+            <button style="display: block; margin: 0 auto;" type="button" class="btn btn-primary" id="body_btNewComensal">
+                    <strong>Procesar Comensal</strong></button>
+    
+        <!-- Muchos Div: Interfaz que Solicita Todos los Atributos Del comensal -->
+            <div class="modal fade" id="comensal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+        
+        <!-- Titulos de las Cajitas que se van a Procesar --> 
+                        <div class="modal-header">
+                            <h5 class="modal-title">Procesar comensal</h5>
+                        </div>
+
+        <!-- Input del Nombre del comensal -->
+                        <div class="modal-body">
+                            <label class="form-label">Nombre del comensal:</label>
+                            <input type="text" class="form-control" id="comensal_inNombre" placeholder="Ej: Mario">
+                        </div>
+
+        <!-- Input de la Cédula del Comensal: -->
+                        <div class="modal-body">
+                            <label class="form-label">Cédula del Comensal:</label>
+                            <input type="text" class="form-control" id="comensal_inCedula" placeholder="Ej: 500">
+                        </div>
+
+        <!-- Seleccionador el sexo del comensal -->
+                        <div class="modal-body">
+                            <label class="form-label">Sexo del Comensal</label>
+                            <select class="form-control" id="comensal_inSexo">
+                                <option value="" disabled selected >Seleccione el Sexo del Comensal</option>
+                                <option value="Mujer">Mujer</option>
+                                <option value="Hombre">Hombre</option>
+                            </select>
+                        </div>
+
+        <!-- Seleccionador el turno del comensal -->
+                        <div class="modal-body">
+                            <label class="form-label">turno del Comensal</label>
+                            <select class="form-control" id="comensal_inTurno">
+                                <option value="" disabled selected >Seleccione el Turno del Comensal</option>
+                                <option value="Desayuno">Desayuno 5$</option>
+                                <option value="Almuerzo">Almuerzo 7$</option>
+                                <option value="Ambos">Ambos 10$</option>
+                            </select>
+                        </div>
+
+        <!-- Input de la fecha de nacimiento del comensal -->
+                        <div class="modal-body">
+                            <label class="form-label">Fecha de Nacimiento:</label>
+                            <input type="date" class="form-control" id="comensal_inFechaNacimiento">
+                        </div>
+        
+        <!-- Botones de Aceptar y Cancelar -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="comensal_btCancelar">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="comensal_btAceptar">Aceptar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        <!-- Copy y Pega del Link -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- LLamamos a las Clases -->
+
+            <script type="module">
+
+                // Clases Controlerss
+                    import Cl_cRestaurante from "./dist/controllers/Cl_cRestaurante.js";
+                    import Cl_cComensal from "./dist/controllers/Cl_cComensal.js";
+
+                // Importamos las Vistas de Bootstrap
+                    import Cl_vRestauranteBootstrap from "./dist/views/Cl_vRestauranteBootstrap.js";
+                    import Cl_vComensalBootstrap from "./dist/views/Cl_vComensalBootstrap.js";
+
+                // Instanciamos las Vistas 
+                    const vistaRestaurante = new Cl_vRestauranteBootstrap();
+                    const vistaComensal = new Cl_vComensalBootstrap();
+
+                // Inyectamos las Vistas en los Mismos Controladores
+                    const controladorComensal = new Cl_cComensal(vistaComensal);
+                        new Cl_cRestaurante(vistaRestaurante, controladorComensal);
+
+            </script>
+
+
 </body>
 </html>

@@ -4,10 +4,10 @@ export interface I_vComensal {
 
     // Atributos de la Clase Menor
         get nombre(): string;
-        get cedula(): number;
+        get cedula(): string;
         get sexo(): string;
         get turno(): string;
-        get fecha(): string;
+        get fechaNacimiento(): string;
 
     // Métodos de la Clase Menor
         mostrar(): void;
