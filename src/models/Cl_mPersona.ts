@@ -14,6 +14,9 @@ export default class Cl_mPersona{
     }
 
     set nombre(n:string){
+
+        if(typeof n !== "string"){
+        {throw new Error("El nombre debe ser una cadena de texto"); }} 
         this._nombre = n;
     }
 
@@ -22,6 +25,9 @@ export default class Cl_mPersona{
     }
 
     set cedula(c:string){
+        const soloNumeros = /^[0-9]+$/;
+        if(!soloNumeros.test(c)){
+            throw new Error("La cedula solo debe contener numeros");}
         this._cedula = c;
     }
 
@@ -30,7 +36,9 @@ export default class Cl_mPersona{
     }
 
     set sexo(s:string){
-        this._sexo = s;
+        if( s !== "Mujer" && s !== "Hombre"){
+            throw new Error ("Solo puede ser Hombre o Mujer");}
+            this._sexo = s;
     }
 
     get sexo(): string{
