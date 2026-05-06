@@ -44,18 +44,14 @@ export default class Cl_cRestaurante {
 
     // Datos Constantes para el Restaurante
         private readonly datosRestaurante = [
-            {nombre: "Juan Sanz", cedula: "111", sexo: "Hombre", fechaNac: "1965, 9, 20", turnoComida: "Ambos"},
-            {nombre: "Maria Gomez", cedula: "222", sexo: "Mujer", fechaNac: "1985, 10, 20", turnoComida: "Ambos"},
-            {nombre: "Carlos Sanchez", cedula: "333", sexo: "Hombre", fechaNac: "2000, 2, 5", turnoComida: "Desayuno"},
-            {nombre: "Ana Rodriguez", cedula: "444", sexo: "Mujer", fechaNac: "1960, 7, 30", turnoComida: "Ambos"},
-            {nombre: "Luis Fernandez", cedula: "555", sexo: "Hombre", fechaNac: "1955, 11, 25", turnoComida: "Almuerzo"},
-            {nombre: "Sofia Martinez", cedula: "666", sexo: "Mujer", fechaNac: "1992, 3, 10", turnoComida: "Desayuno"},
-            {nombre: "Diego Ramirez", cedula: "777", sexo: "Hombre", fechaNac: "1980, 8, 5", turnoComida: "Ambos"},
-            {nombre: "Laura Gonzalez", cedula: "888", sexo: "Mujer", fechaNac: "1998, 12, 15", turnoComida: "Almuerzo"},
-            {nombre: "Jorge Lopez", cedula: "999", sexo: "Hombre", fechaNac: "1983, 4, 20", turnoComida: "Desayuno"},
-            {nombre: "Isabella Torres", cedula: "1010", sexo: "Mujer", fechaNac: "1958, 9, 25", turnoComida: "Ambos"},
-            {nombre: "Miguel Flores", cedula: "1011", sexo: "Hombre", fechaNac: "1950, 6, 10", turnoComida: "Almuerzo"},
-            {nombre: "Luz Ramirez", cedula: "1012", sexo: "Mujer", fechaNac: "1993, 1, 5", turnoComida: "Desayuno"},
+            {nombre: "Ana Gil", cedula: "8888", sexo: "Mujer", fechaNac: "2001, 6, 15", turnoComida: "Desayuno"},
+            {nombre: "Mery Paz", cedula: "6666", sexo: "Mujer", fechaNac: "2009, 7, 25", turnoComida: "Desayuno"},
+            {nombre: "Juan Sanz", cedula: "9999", sexo: "Hombre", fechaNac: "1965, 9, 20", turnoComida: "Desayuno"},
+            {nombre: "Paty Ortiz", cedula: "3333", sexo: "Mujer", fechaNac: "1975, 5, 14", turnoComida: "Ambos"},
+            {nombre: "Liz Ramos", cedula: "2222", sexo: "Mujer", fechaNac: "2005, 1, 3", turnoComida: "Desayuno"},
+            {nombre: "Raul Mendez", cedula: "5555", sexo: "Hombre", fechaNac: "1995, 10, 11", turnoComida: "Almuerzo"},
+            {nombre: "Tony Flores", cedula: "7777", sexo: "Hombre", fechaNac: "1964, 8, 7", turnoComida: "Ambos"},
+            {nombre: "Gaby Lopez", cedula: "1111", sexo: "Mujer", fechaNac: "1966, 7, 19", turnoComida: "Desayuno"}
          ];
          
         constructor(vistaRestaurante: I_vRestaurante, controladorComensal: Cl_cComensal) {
@@ -90,6 +86,7 @@ export default class Cl_cRestaurante {
                     porcentDescuentoHombres: this.mRestaurante.porcentDescuentoHombres(),
                     nombreDescuento: this.mRestaurante.nombreDescuento(),
                     descuentoMayor: this.mRestaurante.descuentoMayor(),
+                    acumuladorDescuentos: this.mRestaurante.acumuladorDescuentos()
                 });
             }
 

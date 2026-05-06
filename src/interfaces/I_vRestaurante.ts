@@ -4,7 +4,9 @@ export interface I_vRestaurante {
 
     // Exponemos Una Acción 
         onNewComensal(callback: () => void): void;
-        reportar({contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres, nombreDescuento, descuentoMayor}: 
+        reportar({contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, 
+            porcentDescuentoMujeres, porcentDescuentoHombres, nombreDescuento, descuentoMayor}: 
             {contadorVarios: number; porcentDesayuno: number; porcentAlmuerzo: number; porcentAmbos: number; 
-                porcentDescuentoMujeres: number; porcentDescuentoHombres: number; nombreDescuento: string; descuentoMayor: number;}): void;
+                porcentDescuentoMujeres: number; porcentDescuentoHombres: number; nombreDescuento: string; 
+                descuentoMayor: number; acumuladorDescuentos: number;}): void;
 }

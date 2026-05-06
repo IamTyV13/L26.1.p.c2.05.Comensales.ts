@@ -11,6 +11,7 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    private lblPorcentDescuentoHombres: HTMLElement;
    private lblNombreDescuento: HTMLElement;
    private lblDescuentoMayor: HTMLElement;
+   private lblTotalDescuentos: HTMLElement;
    private btNewComensal: HTMLButtonElement;
    private vista: HTMLElement | null;
 
@@ -23,6 +24,7 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
       this.lblPorcentDescuentoHombres = document.getElementById("body_lblPorcentDescuentoHombres") as HTMLElement;
       this.lblNombreDescuento = document.getElementById("body_lblNombreDescuento") as HTMLElement;
       this.lblDescuentoMayor = document.getElementById("body_lblDescuentoMayor") as HTMLElement;
+      this.lblTotalDescuentos = document.getElementById("body_lblTotalDescuentos") as HTMLElement;
 
       this.btNewComensal = document.getElementById("body_btNewComensal") as HTMLButtonElement;
       this.vista = document.getElementById("body");
@@ -31,8 +33,10 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    onNewComensal(callback: () => void): void {
         this.btNewComensal.onclick = callback;      }
 
-    reportar({ contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres, nombreDescuento, descuentoMayor }: 
-      { contadorVarios: number; porcentDesayuno: number; porcentAlmuerzo: number; porcentAmbos: number; porcentDescuentoMujeres: number; porcentDescuentoHombres: number; nombreDescuento: string; descuentoMayor: number; }): void {
+    reportar({ contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres, 
+      nombreDescuento, descuentoMayor, acumuladorDescuentos }: 
+      { contadorVarios: number; porcentDesayuno: number; porcentAlmuerzo: number; porcentAmbos: number; porcentDescuentoMujeres: number; 
+         porcentDescuentoHombres: number; nombreDescuento: string; descuentoMayor: number; acumuladorDescuentos: number; }): void {
         this.lblTotalesVarios.innerHTML = `${contadorVarios}`
         this.lblPorcentDesayuno.innerHTML = `${porcentDesayuno.toFixed(2)}`
         this.lblPorcentAlmuerzo.innerHTML = `${porcentAlmuerzo.toFixed(2)}`
@@ -41,16 +45,10 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
         this.lblPorcentDescuentoHombres.innerHTML = `${porcentDescuentoHombres.toFixed(2)}`
         this.lblNombreDescuento.innerHTML = `${nombreDescuento}`
         this.lblDescuentoMayor.innerHTML = `${descuentoMayor.toFixed(2)}`
+        this.lblTotalDescuentos.innerHTML = `${acumuladorDescuentos.toFixed(2)}`
         
     }
-
-    mostrar(): void {
-        if (this.vista === null) return;
-        this.vista.hidden = false;          }
-
-    ocultar(): void {
-        if (this.vista === null) return;
-        this.vista.hidden = true;           }
+    
 }
 
 /* Planteamiento de Proyectos 2do corte (8 Ptos)

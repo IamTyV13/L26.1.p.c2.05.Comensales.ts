@@ -9,6 +9,7 @@ export default class Cl_mRestaurante{
     private cntDescuentoHombres : number;
     private auxNombreDescuento : string;
     private mayorDescuento : number;
+    private acumDescuento : number;
     
     
     constructor() {
@@ -20,37 +21,45 @@ export default class Cl_mRestaurante{
         this.cntDescuentoHombres = 0.0;
         this.auxNombreDescuento = "";
         this.mayorDescuento = 0.0;
+        this.acumDescuento = 0.0;
 
     } 
 
     procesarComensal(c: Cl_mComensal): void{
-        this.cntVarios++
 
-        if(c.turnoComida === "Desayuno"){
-            this.cntDesayuno ++ // Como son porcentaje necesitamos la cantidad no la plata.
-        }
-        
-        if(c.turnoComida === "Almuerzo"){
-            this.cntAlmuerzo ++
-        }
-        
-        if(c.turnoComida === "Ambos"){
-            this.cntAmbos ++
-        }
-        
-        if(c.sexo === "Mujer" && c.descuento()){
-            this.cntDescuentoMujeres ++ // aja y el descuento =?
-        }
-        
-        if(c.sexo === "Hombre" && c.descuento()){
-            this.cntDescuentoHombres ++ // x2
-        }
+        // Contador de Comensales
+            this.cntVarios++
 
-        if(c.descuento() >= this.mayorDescuento){
-            this.mayorDescuento = c.descuento()
-            this.auxNombreDescuento = c.nombre;
-        }
+        // Contadores de Turnos de Comida
+            if(c.turnoComida === "Desayuno"){
+                this.cntDesayuno ++ // Como son porcentaje necesitamos la cantidad no la plata.
+            }
+            
+            if(c.turnoComida === "Almuerzo"){
+                this.cntAlmuerzo ++
+            }
+            
+            if(c.turnoComida === "Ambos"){
+                this.cntAmbos ++
+            }
+        
+        // Contadores de Descuentos por Sexo
+            if(c.sexo === "Mujer" && c.descuento()){
+                this.cntDescuentoMujeres ++ // aja y el descuento =?
+            }
+            
+            if(c.sexo === "Hombre" && c.descuento()){
+                this.cntDescuentoHombres ++ // x2
+            }
 
+        // Nombre Del Comensal Con Mayor Descuento
+            if(c.descuento() >= this.mayorDescuento){
+                this.mayorDescuento = c.descuento()
+                this.auxNombreDescuento = c.nombre;
+            }
+
+        // Acumulador de Descuentos
+            this.acumDescuento += c.descuento();
     }
 
     porcentDesayuno(): number {
@@ -92,6 +101,10 @@ export default class Cl_mRestaurante{
 
     descuentoMayor(): number{
         return this.mayorDescuento;
+    }
+
+    acumuladorDescuentos(): number {
+        return this.acumDescuento;
     }
 
 
