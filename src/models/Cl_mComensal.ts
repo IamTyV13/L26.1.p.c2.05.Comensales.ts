@@ -18,7 +18,7 @@ export default class Cl_mComensal extends Cl_mPersona{
         return this._turnoComida;
     }
 
-    costoComida(): number{
+    costo(): number{
         if(this.turnoComida === "Desayuno"){
             return 5;
         } else 
@@ -33,10 +33,14 @@ export default class Cl_mComensal extends Cl_mPersona{
 
     descuento(): number{
         if(this.sexo === "Mujer" && this.edad() >50){
-            return this.costoComida() * 0.5 
+            return this.costo() * 0.5 
         } else
         if(this.sexo === "Hombre" && this.edad() > 60){
-            return this.costoComida() * 0.5
+            return this.costo() * 0.5
         }  else return 0
+    }
+
+    precio(): number{ 
+        return this.costo() - this.descuento();
     }
 }
