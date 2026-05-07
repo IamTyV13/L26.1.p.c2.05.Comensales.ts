@@ -28,7 +28,7 @@ export default class Cl_cComensal {
 
         private btAceptarOnclick() {
             this.callback(new Cl_mComensal({nombre:this.vista.nombre, cedula:this.vista.cedula,
-                sexo:this.vista.sexo, fechaNacimiento:this.vista.fechaNacimiento, turno:this.vista.turno}));
+                sexo:this.vista.sexo, fechaNac:this.vista.fechaNac, turnoComida:this.vista.turnoComida}));
             this.vista.ocultar();
         }
 }

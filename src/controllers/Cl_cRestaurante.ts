@@ -44,18 +44,18 @@ export default class Cl_cRestaurante {
 
     // Datos Constantes para el Restaurante
         private readonly datosRestaurante = [
-            {nombre: "Juan Perez", cedula: "111", sexo: "Hombre", fechaNacimiento: "1965, 5, 15", turno: "Almuerzo"},
-            {nombre: "Maria Gomez", cedula: "222", sexo: "Mujer", fechaNacimiento: "1985, 10, 20", turno: "Ambos"},
-            {nombre: "Carlos Sanchez", cedula: "333", sexo: "Hombre", fechaNacimiento: "2000, 2, 5", turno: "Desayuno"},
-            {nombre: "Ana Rodriguez", cedula: "444", sexo: "Mujer", fechaNacimiento: "1960, 7, 30", turno: "Ambos"},
-            {nombre: "Luis Fernandez", cedula: "555", sexo: "Hombre", fechaNacimiento: "1955, 11, 25", turno: "Almuerzo"},
-            {nombre: "Sofia Martinez", cedula: "666", sexo: "Mujer", fechaNacimiento: "1992, 3, 10", turno: "Desayuno"},
-            {nombre: "Diego Ramirez", cedula: "777", sexo: "Hombre", fechaNacimiento: "1980, 8, 5", turno: "Ambos"},
-            {nombre: "Laura Gonzalez", cedula: "888", sexo: "Mujer", fechaNacimiento: "1998, 12, 15", turno: "Almuerzo"},
-            {nombre: "Jorge Lopez", cedula: "999", sexo: "Hombre", fechaNacimiento: "1983, 4, 20", turno: "Desayuno"},
-            {nombre: "Isabella Torres", cedula: "1010", sexo: "Mujer", fechaNacimiento: "1958, 9, 25", turno: "Ambos"},
-            {nombre: "Miguel Flores", cedula: "1011", sexo: "Hombre", fechaNacimiento: "1950, 6, 10", turno: "Almuerzo"},
-            {nombre: "Luz Ramirez", cedula: "1012", sexo: "Mujer", fechaNacimiento: "1993, 1, 5", turno: "Desayuno"},
+            {nombre: "Juan Sanz", cedula: "111", sexo: "Hombre", fechaNac: "1965, 9, 20", turnoComida: "Ambos"},
+            {nombre: "Maria Gomez", cedula: "222", sexo: "Mujer", fechaNac: "1985, 10, 20", turnoComida: "Ambos"},
+            {nombre: "Carlos Sanchez", cedula: "333", sexo: "Hombre", fechaNac: "2000, 2, 5", turnoComida: "Desayuno"},
+            {nombre: "Ana Rodriguez", cedula: "444", sexo: "Mujer", fechaNac: "1960, 7, 30", turnoComida: "Ambos"},
+            {nombre: "Luis Fernandez", cedula: "555", sexo: "Hombre", fechaNac: "1955, 11, 25", turnoComida: "Almuerzo"},
+            {nombre: "Sofia Martinez", cedula: "666", sexo: "Mujer", fechaNac: "1992, 3, 10", turnoComida: "Desayuno"},
+            {nombre: "Diego Ramirez", cedula: "777", sexo: "Hombre", fechaNac: "1980, 8, 5", turnoComida: "Ambos"},
+            {nombre: "Laura Gonzalez", cedula: "888", sexo: "Mujer", fechaNac: "1998, 12, 15", turnoComida: "Almuerzo"},
+            {nombre: "Jorge Lopez", cedula: "999", sexo: "Hombre", fechaNac: "1983, 4, 20", turnoComida: "Desayuno"},
+            {nombre: "Isabella Torres", cedula: "1010", sexo: "Mujer", fechaNac: "1958, 9, 25", turnoComida: "Ambos"},
+            {nombre: "Miguel Flores", cedula: "1011", sexo: "Hombre", fechaNac: "1950, 6, 10", turnoComida: "Almuerzo"},
+            {nombre: "Luz Ramirez", cedula: "1012", sexo: "Mujer", fechaNac: "1993, 1, 5", turnoComida: "Desayuno"},
          ];
          
         constructor(vistaRestaurante: I_vRestaurante, controladorComensal: Cl_cComensal) {
@@ -74,7 +74,7 @@ export default class Cl_cRestaurante {
         // Nuevo Método para Cargar Datos Constantes al Restaurante
             private cargarDatosConst(): void {
                 for (let b of this.datosRestaurante) {
-                    const comensal = new Cl_mComensal({nombre: b.nombre, cedula: b.cedula, sexo: b.sexo, fechaNacimiento: b.fechaNacimiento, turno: b.turno});
+                    const comensal = new Cl_mComensal({nombre: b.nombre, cedula: b.cedula, sexo: b.sexo, fechaNac: b.fechaNac, turnoComida: b.turnoComida});
                     this.mRestaurante.procesarComensal(comensal);
                 }
             }
@@ -87,7 +87,9 @@ export default class Cl_cRestaurante {
                     porcentAlmuerzo: this.mRestaurante.porcentAlmuerzo(),
                     porcentAmbos: this.mRestaurante.porcentAmbos(),
                     porcentDescuentoMujeres: this.mRestaurante.porcentDescuentoMujeres(),
-                    porcentDescuentoHombres: this.mRestaurante.porcentDescuentoHombres()
+                    porcentDescuentoHombres: this.mRestaurante.porcentDescuentoHombres(),
+                    nombreDescuento: this.mRestaurante.nombreDescuento(),
+                    descuentoMayor: this.mRestaurante.descuentoMayor(),
                 });
             }
 

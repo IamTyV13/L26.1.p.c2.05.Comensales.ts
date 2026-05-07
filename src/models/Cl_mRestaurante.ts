@@ -7,6 +7,8 @@ export default class Cl_mRestaurante{
     private cntAmbos : number; 
     private cntDescuentoMujeres : number;
     private cntDescuentoHombres : number;
+    private auxNombreDescuento : string;
+    private mayorDescuento : number;
     
     
     constructor() {
@@ -16,20 +18,23 @@ export default class Cl_mRestaurante{
         this.cntAmbos = 0;
         this.cntDescuentoMujeres = 0.0;
         this.cntDescuentoHombres = 0.0;
+        this.auxNombreDescuento = "";
+        this.mayorDescuento = 0.0;
+
     } 
 
     procesarComensal(c: Cl_mComensal): void{
         this.cntVarios++
 
-        if(c.turno === "Desayuno"){
+        if(c.turnoComida === "Desayuno"){
             this.cntDesayuno ++ // Como son porcentaje necesitamos la cantidad no la plata.
         }
         
-        if(c.turno === "Almuerzo"){
+        if(c.turnoComida === "Almuerzo"){
             this.cntAlmuerzo ++
         }
         
-        if(c.turno === "Ambos"){
+        if(c.turnoComida === "Ambos"){
             this.cntAmbos ++
         }
         
@@ -39,6 +44,11 @@ export default class Cl_mRestaurante{
         
         if(c.sexo === "Hombre" && c.descuento()){
             this.cntDescuentoHombres ++ // x2
+        }
+
+        if(c.descuento() >= this.mayorDescuento){
+            this.mayorDescuento = c.descuento()
+            this.auxNombreDescuento = c.nombre;
         }
 
     }
@@ -75,5 +85,14 @@ export default class Cl_mRestaurante{
 
     contadorVarios(): number {
         return this.cntVarios; }
+
+    nombreDescuento(): string{
+        return this.auxNombreDescuento;
+    }
+
+    descuentoMayor(): number{
+        return this.mayorDescuento;
+    }
+
 
 }

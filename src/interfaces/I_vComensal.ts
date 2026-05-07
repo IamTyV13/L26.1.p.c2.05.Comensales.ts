@@ -6,8 +6,8 @@ export interface I_vComensal {
         get nombre(): string;
         get cedula(): string;
         get sexo(): string;
-        get turno(): string;
-        get fechaNacimiento(): string;
+        get turnoComida(): string;
+        get fechaNac(): string;
 
     // Métodos de la Clase Menor
         mostrar(): void;

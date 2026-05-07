@@ -2,15 +2,15 @@ export default class Cl_mPersona{
     private _nombre : string ="";
     private _cedula : string ="";
     private _sexo : string = "";
-    private _fechaNacimiento : Date = new Date(); 
+    private _fechaNac : Date = new Date(); 
 
-    constructor({nombre,cedula,sexo,fechaNacimiento}:
-        {nombre:string, cedula:string, sexo:string, fechaNacimiento:string}=
-        {nombre:"", cedula:"", sexo:"", fechaNacimiento:""}){
+    constructor({nombre,cedula,sexo,fechaNac}:
+        {nombre:string, cedula:string, sexo:string, fechaNac:string}=
+        {nombre:"", cedula:"", sexo:"", fechaNac:""}){
         this.nombre = nombre;
         this.cedula = cedula;
         this.sexo = sexo;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fechaNac = fechaNac;
     }
 
     set nombre(n:string){
@@ -45,23 +45,23 @@ export default class Cl_mPersona{
         return this._sexo;
     }
 
-    set fechaNacimiento(f:string){
-        this._fechaNacimiento = new Date(f);
+    set fechaNac(f:string){
+        this._fechaNac = new Date(f);
     }
 
-    get fechaNacimiento(): Date{
-        return this._fechaNacimiento;
+    get fechaNac(): Date{
+        return this._fechaNac;
     }
 
-    calcularEdad(): number {
+    edad(): number {
     const hoy = new Date();  // fecha actual
 
-    let edad = hoy.getFullYear() - this.fechaNacimiento.getFullYear();
+    let edad = hoy.getFullYear() - this.fechaNac.getFullYear();
 
     const mesActual = hoy.getMonth();
-    const mesNac = this.fechaNacimiento.getMonth();
+    const mesNac = this.fechaNac.getMonth();
     const diaActual = hoy.getDate();
-    const diaNac = this.fechaNacimiento.getDate();
+    const diaNac = this.fechaNac.getDate();
     
     // Si aún no ha cumplido años este año, restar 1
     if (mesActual < mesNac || (mesActual === mesNac && diaActual < diaNac)) {

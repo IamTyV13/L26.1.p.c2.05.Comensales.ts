@@ -6,8 +6,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
    private inNombre: HTMLInputElement;
    private inCedula: HTMLInputElement;
    private inSexo: HTMLSelectElement;
-   private inFechaNacimiento: HTMLInputElement;
-   private inTurno: HTMLSelectElement;
+   private inFechaNac: HTMLInputElement;
+   private inTurnoComida: HTMLSelectElement;
    private btCancelar: HTMLButtonElement;
    private btAceptar: HTMLButtonElement;
    private vista: HTMLElement;
@@ -16,8 +16,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
       this.inNombre = document.getElementById("comensal_inNombre") as HTMLInputElement;
       this.inCedula = document.getElementById("comensal_inCedula") as HTMLInputElement;
       this.inSexo = document.getElementById("comensal_inSexo") as HTMLSelectElement;
-      this.inFechaNacimiento = document.getElementById("comensal_inFechaNacimiento") as HTMLInputElement;
-      this.inTurno = document.getElementById("comensal_inTurno") as HTMLSelectElement;
+      this.inFechaNac = document.getElementById("comensal_inFechaNac") as HTMLInputElement;
+      this.inTurnoComida = document.getElementById("comensal_inTurnoComida") as HTMLSelectElement;
       this.btCancelar = document.getElementById("comensal_btCancelar") as HTMLButtonElement;
       this.btAceptar = document.getElementById("comensal_btAceptar") as HTMLButtonElement;
       this.vista = document.getElementById("comensal") as HTMLElement;
@@ -26,8 +26,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
          this.inNombre.addEventListener("input", () => this.validarBoton());
          this.inCedula.addEventListener("input", () => this.validarBoton());
          this.inSexo.addEventListener("change", () => this.validarBoton());
-         this.inFechaNacimiento.addEventListener("input", () => this.validarBoton());
-         this.inTurno.addEventListener("change", () => this.validarBoton());
+         this.inFechaNac.addEventListener("input", () => this.validarBoton());
+         this.inTurnoComida.addEventListener("change", () => this.validarBoton());
 
       // Estado Inicial
             this.validarBoton();
@@ -48,10 +48,10 @@ export default class Cl_vComensalPlain implements I_vComensal{
                const sexo = this.inSexo.value;
                const sexoValido = sexo === "Mujer" || sexo === "Hombre";
 
-               const fecha = this.inFechaNacimiento.value;
+               const fecha = this.inFechaNac.value;
                const fechaValido = fecha !== "";
 
-               const turno = this.inTurno.value;
+               const turno = this.inTurnoComida.value;
                const turnoValido = turno === "Desayuno" || turno === "Almuerzo" || turno === "Ambos";
 
                // Validamos Si 
@@ -79,11 +79,11 @@ export default class Cl_vComensalPlain implements I_vComensal{
    get sexo(): string {
       return this.inSexo.value;  }
 
-   get fechaNacimiento(): string {
-      return this.inFechaNacimiento.value; }
+   get fechaNac(): string {
+      return this.inFechaNac.value; }
 
-   get turno(): string {
-      return this.inTurno.value; }
+   get turnoComida(): string {
+      return this.inTurnoComida.value; }
 
    onAceptar(callback: () => void): void {
         this.btAceptar.onclick = callback;   }
@@ -97,8 +97,8 @@ export default class Cl_vComensalPlain implements I_vComensal{
             this.inNombre.value = "";
             this.inCedula.value = "";
             this.inSexo.value = "";
-            this.inFechaNacimiento.value = "";
-            this.inTurno.value = "";
+            this.inFechaNac.value = "";
+            this.inTurnoComida.value = "";
         }
 
     ocultar(): void {
@@ -124,7 +124,7 @@ export default class Cl_vComensalPlain implements I_vComensal{
    -> Apellido
    -> Cédula
    -> Sexo (M-F)
-   -> Fecha de nacimiento (aaaa-mm-dd)
+   -> Fecha de nac (aaaa-mm-dd)
 
 -COMENSALES: Gestión de comensales
    -> Se registran los datos del comensal

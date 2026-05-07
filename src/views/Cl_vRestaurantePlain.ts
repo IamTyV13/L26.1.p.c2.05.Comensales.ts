@@ -9,6 +9,8 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    private lblPorcentAmbos: HTMLElement;
    private lblPorcentDescuentoMujeres: HTMLElement;
    private lblPorcentDescuentoHombres: HTMLElement;
+   private lblNombreDescuento: HTMLElement;
+   private lblDescuentoMayor: HTMLElement;
    private btNewComensal: HTMLButtonElement;
    private vista: HTMLElement | null;
 
@@ -19,6 +21,8 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
       this.lblPorcentAmbos = document.getElementById("body_lblPorcentAmbos") as HTMLElement;
       this.lblPorcentDescuentoMujeres = document.getElementById("body_lblPorcentDescuentoMujeres") as HTMLElement;
       this.lblPorcentDescuentoHombres = document.getElementById("body_lblPorcentDescuentoHombres") as HTMLElement;
+      this.lblNombreDescuento = document.getElementById("body_lblNombreDescuento") as HTMLElement;
+      this.lblDescuentoMayor = document.getElementById("body_lblDescuentoMayor") as HTMLElement;
 
       this.btNewComensal = document.getElementById("body_btNewComensal") as HTMLButtonElement;
       this.vista = document.getElementById("body");
@@ -27,14 +31,16 @@ export default class Cl_vRestaurantePlain implements I_vRestaurante{
    onNewComensal(callback: () => void): void {
         this.btNewComensal.onclick = callback;      }
 
-    reportar({ contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres }: 
-      { contadorVarios: number; porcentDesayuno: number; porcentAlmuerzo: number; porcentAmbos: number; porcentDescuentoMujeres: number; porcentDescuentoHombres: number; }): void {
+    reportar({ contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres, nombreDescuento, descuentoMayor }: 
+      { contadorVarios: number; porcentDesayuno: number; porcentAlmuerzo: number; porcentAmbos: number; porcentDescuentoMujeres: number; porcentDescuentoHombres: number; nombreDescuento: string; descuentoMayor: number; }): void {
         this.lblTotalesVarios.innerHTML = `${contadorVarios}`
         this.lblPorcentDesayuno.innerHTML = `${porcentDesayuno.toFixed(2)}`
         this.lblPorcentAlmuerzo.innerHTML = `${porcentAlmuerzo.toFixed(2)}`
         this.lblPorcentAmbos.innerHTML = `${porcentAmbos.toFixed(2)}`
         this.lblPorcentDescuentoMujeres.innerHTML = `${porcentDescuentoMujeres.toFixed(2)}`
         this.lblPorcentDescuentoHombres.innerHTML = `${porcentDescuentoHombres.toFixed(2)}`
+        this.lblNombreDescuento.innerHTML = `${nombreDescuento}`
+        this.lblDescuentoMayor.innerHTML = `${descuentoMayor.toFixed(2)}`
         
     }
 
