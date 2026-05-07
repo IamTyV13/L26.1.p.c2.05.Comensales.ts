@@ -6,6 +6,8 @@ export default class Cl_vRestauranteBootstrap {
     lblPorcentAmbos;
     lblPorcentDescuentoMujeres;
     lblPorcentDescuentoHombres;
+    lblNombreDescuento;
+    lblDescuentoMayor;
     btNewComensal;
     vista;
     constructor() {
@@ -15,19 +17,23 @@ export default class Cl_vRestauranteBootstrap {
         this.lblPorcentAmbos = document.getElementById("body_lblPorcentAmbos");
         this.lblPorcentDescuentoMujeres = document.getElementById("body_lblPorcentDescuentoMujeres");
         this.lblPorcentDescuentoHombres = document.getElementById("body_lblPorcentDescuentoHombres");
+        this.lblNombreDescuento = document.getElementById("body_lblNombreDescuento");
+        this.lblDescuentoMayor = document.getElementById("body_lblDescuentoMayor");
         this.btNewComensal = document.getElementById("body_btNewComensal");
         this.vista = document.getElementById("app-bootstrap");
     }
     onNewComensal(callback) {
         this.btNewComensal.onclick = callback;
     }
-    reportar({ contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres }) {
+    reportar({ contadorVarios, porcentDesayuno, porcentAlmuerzo, porcentAmbos, porcentDescuentoMujeres, porcentDescuentoHombres, nombreDescuento, descuentoMayor }) {
         this.lblTotalesVarios.innerHTML = `${contadorVarios}`;
         this.lblPorcentDesayuno.innerHTML = `${porcentDesayuno.toFixed(2)}`;
         this.lblPorcentAlmuerzo.innerHTML = `${porcentAlmuerzo.toFixed(2)}`;
         this.lblPorcentAmbos.innerHTML = `${porcentAmbos.toFixed(2)}`;
         this.lblPorcentDescuentoMujeres.innerHTML = `${porcentDescuentoMujeres.toFixed(2)}`;
         this.lblPorcentDescuentoHombres.innerHTML = `${porcentDescuentoHombres.toFixed(2)}`;
+        this.lblNombreDescuento.innerHTML = `${nombreDescuento}`;
+        this.lblDescuentoMayor.innerHTML = `${descuentoMayor.toFixed(2)}`;
     }
 }
 /* Planteamiento de Proyectos 2do corte (8 Ptos)
